@@ -13,3 +13,23 @@ alter table public.leads add column if not exists next_follow_up_at timestamptz;
 create unique index if not exists leads_email_unique_idx on public.leads (lower(email));
 alter table public.leads enable row level security; alter table public.lead_events enable row level security;
 revoke all on public.leads from anon,authenticated; revoke all on public.lead_events from anon,authenticated;
+
+create table if not exists public.recovery_checks (
+ id uuid primary key default gen_random_uuid(),
+ created_at timestamptz not null default now(),
+ invoice_amount numeric not null,
+ due_date date not null,
+ paid_date date,
+ reference_rate numeric not null default 3.75,
+ statutory_rate numeric not null default 11.75,
+ days_overdue integer not null default 0,
+ interest_estimate numeric not null default 0,
+ recovery_fee numeric not null default 0,
+ total_recoverable numeric not null default 0,
+ contractual_rate numeric,
+ jurisdiction text not null default 'England and Wales',
+ email text,
+ source text not null default 'recovery-check'
+);
+alter table public.recovery_checks enable row level security;
+revoke all on public.recovery_checks from anon,authenticated;
