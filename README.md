@@ -75,3 +75,8 @@ The repository is ready for deployment, but deployment credentials/permissions m
 - GOV.UK late commercial payments: https://www.gov.uk/late-commercial-payments-interest-debt-recovery/charging-interest-commercial-debt
 - GOV.UK recovery costs: https://www.gov.uk/late-commercial-payments-interest-debt-recovery/claim-debt-recovery-costs
 - Bank of England Bank Rate: https://www.bankofengland.co.uk/monetary-policy/the-interest-rate-bank-rate
+
+
+## Estimation platform
+
+A group-ready estimation workspace is now included in the Next.js app with sector-aware estimate setup, live cost build-up, overhead/contingency/markup controls, commercial dashboard, and editable employee cost/sell rates. The model is designed to extend across RSE Group business units with controlled rate versions, approvals, saved estimates and Supabase persistence.
