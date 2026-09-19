@@ -33,3 +33,5 @@ create table if not exists public.recovery_checks (
 );
 alter table public.recovery_checks enable row level security;
 revoke all on public.recovery_checks from anon,authenticated;
+create policy "deny anonymous recovery access" on public.recovery_checks for all to anon using (false) with check (false);
+create policy "deny authenticated recovery access" on public.recovery_checks for all to authenticated using (false) with check (false);
