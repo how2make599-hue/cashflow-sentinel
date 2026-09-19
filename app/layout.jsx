@@ -1,0 +1,1 @@
+import "./globals.css"; export const metadata={title:"Cashflow Sentinel",description:"Find and recover trapped cash."}; export default function Layout({children}){return <html lang="en"><body>{children}</body></html>}
